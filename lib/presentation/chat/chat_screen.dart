@@ -5,17 +5,42 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var appBar = AppBar(
+    return Scaffold(
+      appBar: AppBar(
         leading: Padding(
           padding: const EdgeInsets.all(4.0),
           child: CircleAvatar(
             backgroundImage: NetworkImage('https://img.a.transfermarkt.technology/portrait/big/28003-1740766555.jpg?lm=1'),
           ),
         ),
-        title: const Text('Contacto 1 :)'),
-      );
-    return Scaffold(
-      appBar: appBar,
+        title: const Text('Messi :)'),
+      ),
+      body: _ChatView(),
+    );
+  }
+}
+
+class _ChatView extends StatelessWidget {
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: 100,
+                itemBuilder: (context, index) {
+                return Text('Indice $index');
+              },),
+            ),
+           Text('Mundo')
+          ],
+        ),
+      ),
     );
   }
 }
