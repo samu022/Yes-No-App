@@ -42,6 +42,17 @@ class _ImageBubble extends StatelessWidget {
         'https://yesno.wtf/assets/yes/10-271c872c91cd72c1e38e72d2f8eda676.gif',
         width: size.width*0.7,
         height: 150,
-        fit: BoxFit.cover,));
+        fit: BoxFit.cover,
+        loadingBuilder: (context, child, loadingProgress) {
+          if( loadingProgress == null) return child;
+          return Container(
+            width: size.width * 0.7,
+            height: 150,
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: const Text('Messi esta enviando una imagen'),
+          );
+        },
+      )
+    );
   }
 }
